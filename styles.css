@@ -1,0 +1,31 @@
+body{
+    background: #de0707;
+}
+
+h1{
+    color: #000000;
+    margin-left: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    padding: 40px;
+    background: #e0e0e0;
+    color: #222;
+    border: 2px solid black;
+    margin: 10px; 
+}
+
+#search{
+    text-align: center;
+}
+
+#inputnum, #name, #bttn1, #bttn2{
+    text-align: center;
+    margin-left: 5px;
+}

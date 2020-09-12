@@ -26,7 +26,7 @@ button1.addEventListener('click', function(){
 
 button2.addEventListener('click', function(){
     if(name.value.length <= 20 && name.value.match(letters)){
-        alert("You typed " +  name.value);
+        console.log("You typed " +  name.value);
     }
     else if(name.value == ""){
         alert("You typed nothing.");
@@ -35,5 +35,16 @@ button2.addEventListener('click', function(){
         alert("Input is not valid. Please enter character A-Z or a-z only and shorter than 20 characters.");
         
     }
+
+    for(let i=0; i<pokeNames.length; i++ ){
+        if(pokeNames[i].textContent.toLowerCase().indexOf(name.value.toLowerCase())!=-1){
+          lis[i].style.display = "block"
+          alert("Pokemon: " + lis[i].textContent);
+        }
+        else{
+             lis[i].style.display = "none";
+         }
+    }
+
     name.value = "";
 });

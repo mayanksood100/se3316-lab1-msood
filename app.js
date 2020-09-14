@@ -18,7 +18,7 @@ button1.addEventListener('click', function(event){
        }
        for(let i=0; i<spanNums.length; i++){
        
-        if(spanNums[i].textContent.indexOf(number.value)!=-1 && tracker<5){
+        if(spanNums[i].textContent.indexOf(parseInt(number.value))!=-1 && tracker<5){
             tracker++;
             console.log("Tracker is " + tracker);
             

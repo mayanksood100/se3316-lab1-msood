@@ -6,17 +6,25 @@ let pokeNames = Array.from(document.querySelectorAll("h4"));
 let spanNums = Array.from(document.querySelectorAll("span"));
 let button1 = document.getElementById("bttn1");
 let button2 = document.getElementById("bttn2");
+let tracker = 0;
 
+console.log("Tracker : " + tracker);
 
 button1.addEventListener('click', function(event){
     if (isNaN(number.value) || number.value < 1 || number.value > 20) {
+        number.value = "";
         alert("Input Not Valid. Please enter a number between 1 and 20.");
         Event.stop(event);
        }
        for(let i=0; i<spanNums.length; i++){
-        if(spanNums[i].textContent.indexOf(number.value)!=-1){
+       
+        if(spanNums[i].textContent.indexOf(number.value)!=-1 && tracker<5){
+            tracker++;
+            console.log("Tracker is " + tracker);
+            
          lis[i].style.display = "block"
          alert("Pokemon: " + lis[i].textContent);
+
         }
         else{
          lis[i].style.display = "none"
@@ -30,17 +38,24 @@ button2.addEventListener('click', function(event){
         console.log("You typed " +  name.value);
     }
     else if(name.value == ""){
-        alert("Input is not valid. Please enter character A-Z or a-z only and shorter than 20 characters.");
+        alert("Input is not valid. Please enter character A-Z or a-z only.");
+        Event.stop(event);
+    }
+    else if(name.value.length>20){
+        name.value = "";
+        alert("Please enter a name shorter than 20 characters.");
         Event.stop(event);
     }
     else{
-        alert("Input is not valid. Please enter character A-Z or a-z only and shorter than 20 characters.");
+        name.value = "";
+        alert("Input is not valid. Please enter character A-Z or a-z only.");
        Event.stop(event);
         
     }
 
     for(let i=0; i<pokeNames.length; i++ ){
-        if(pokeNames[i].textContent.toLowerCase().indexOf(name.value.toLowerCase())!=-1){
+        if(pokeNames[i].textContent.toLowerCase().indexOf(name.value.toLowerCase())!=-1 && tracker<5){
+            tracker++;
           lis[i].style.display = "block"
           alert("Pokemon: " + lis[i].textContent);
         }

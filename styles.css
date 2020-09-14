@@ -9,6 +9,10 @@ h1{
     font-weight: 700;
 }
 
+h4{
+    font-size: 28px;
+}
+
 ul{
     list-style-type: none;
 }
@@ -18,8 +22,20 @@ li{
     background: #e0e0e0;
     color: #222;
     border: 2px solid black;
-    margin: 10px; 
+    margin: 10px auto; 
+    width: 40%;
+    border-radius: 4%;
 }
+
+div{
+    align-items: center;
+    justify-content: center;
+}
+
+p{
+    font-size: 18px;
+}
+
 
 #search{
     text-align: center;
@@ -28,4 +44,8 @@ li{
 #inputnum, #name, #bttn1, #bttn2{
     text-align: center;
     margin-left: 5px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #292929; 
+    color: white;
 }

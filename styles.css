@@ -49,3 +49,20 @@ p{
     background-color: #292929; 
     color: white;
 }
+
+#newDiv{
+    background: linear-gradient(-45deg, #EE7572, #E73C7E, #23A6D5,#23D5AB);
+    border: 5px solid black;
+    margin: 10px auto;
+    width: 60%;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#pokemonStats{
+    text-align: center;
+    color: hotpink;
+    display: block;
+    background-color: #000000;
+}

@@ -8,6 +8,8 @@ let spanNums = Array.from(document.querySelectorAll("span"));
 let button1 = document.getElementById("bttn1");
 let button2 = document.getElementById("bttn2");
 let tracker = 0;
+let newSearch = document.createElement("div");
+newSearch.id = "newDiv";
 
 //Adding an Event Listener to the Number Search Button to validate the required criteria.
 button1.addEventListener('click', function(event){

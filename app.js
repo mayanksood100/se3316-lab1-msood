@@ -115,6 +115,34 @@ function displayNumberDiv(number, arr){
     
     };
 
-    displayNumberDiv(document.getElementById("number"), spanNums)
+    function displayNameDiv(name, arr){
+
+        name.addEventListener("keyup", function(e){
+        
+            let val = this.value;
+        
+            if (!val) { return false;}
+
+            for(let i=0; i<arr.length; i++){
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        
+                    let pokemonStats = document.createElement("li");
+                    pokemonStats.id = "pokemonStats";
+                    pokemonStats.appendChild(document.createTextNode(lis[i].textContent));
+                    let pokemonImages = (lis[i].childNodes[1].firstChild.nextSibling);
+                    newSearch.appendChild(pokemonImages);
+                    newSearch.appendChild(pokemonStats);
+                    document.body.appendChild(newSearch);
+                   
+                }
+            }
+        })
+        
+        };
+        
+    let pokemonNames = ["Bulbasaur", "Ivysaur", "Venasaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate"]; 
+    
+    displayNameDiv(document.getElementById("name"), pokemonNames);
+    displayNumberDiv(document.getElementById("number"), spanNums);
 
     

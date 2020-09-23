@@ -1,5 +1,5 @@
 //Declaring different variables and using the Document Object Model to retrieve essential elements of the HTML that are needed such as the two search boxes, the two buttons the lis, etc.
-let number = document.getElementById("inputnum");
+let numberBox = document.getElementById("inputnum");
 let name = document.getElementById("name");
 let letters = /^[a-zA-Z\s]+$/;
 let lis = Array.from(document.querySelectorAll("li"));
@@ -10,11 +10,13 @@ let button2 = document.getElementById("bttn2");
 let tracker = 0;
 let newSearch = document.createElement("div");
 newSearch.id = "newDiv";
+let images = Array.from(document.getElementsByTagName("img"));
+
 
 //Adding an Event Listener to the Number Search Button to validate the required criteria.
 button1.addEventListener('click', function(event){
-    if (isNaN(number.value) || number.value < 1 || number.value > 20) {
-        number.value = "";
+    if (isNaN(numberBox.value) || numberBox.value < 1 || numberBox.value > 20) {
+        numberBox.value = "";
         alert("Input Not Valid. Please enter a number between 1 and 20.");
         Event.stop(event);
        }
@@ -22,7 +24,7 @@ button1.addEventListener('click', function(event){
 
        for(let i=0; i<spanNums.length; i++){
        
-        if(spanNums[i].textContent.indexOf(parseInt(number.value))!=-1 && tracker<5){
+        if(spanNums[i].textContent.indexOf(parseInt(numberBox.value))!=-1 && tracker<5){
             tracker++;
             console.log("Tracker is " + tracker);
             
@@ -34,7 +36,7 @@ button1.addEventListener('click', function(event){
          lis[i].style.display = "none"
         }
      }
-       number.value = "";
+       numberBox.value = "";
 });
 
 //Adding an Event Listener to the Name Search Button to validate the required criteria.
@@ -76,7 +78,7 @@ button2.addEventListener('click', function(event){
 
 //This keyup eventlistener will cause the respective button to be clicked thus performing the same function as the button. Since the keycode is 13 which corresponds to the "Enter" key, this will only happen when the enter key is pressed on any of the two searchboxes. 
 
-number.addEventListener("keyup", function(event) {
+numberBox.addEventListener("keyup", function(event) {
     if(event.keyCode === 13){
    document.getElementById("bttn1").click();
 }
@@ -87,3 +89,32 @@ number.addEventListener("keyup", function(event) {
    document.getElementById("bttn2").click();
     }
 });
+
+
+function displayNumberDiv(number, arr){
+   
+    numberBox.addEventListener("input", function(e){
+    
+        let num = this.value;
+    
+        if (!num) { return false;}
+    
+        for(let i=0; i<arr.length; i++){
+            if (arr[i].textContent.substr(0, num.length) == num) {
+                let pokemonStats = document.createElement("li");
+                pokemonStats.id = "pokemonStats";
+                pokemonStats.appendChild(document.createTextNode(lis[i].textContent));
+                let pokemonImages = (lis[i].childNodes[1].firstChild.nextSibling);
+                newSearch.appendChild(pokemonImages);
+                newSearch.appendChild(pokemonStats);
+                document.body.appendChild(newSearch);
+            }
+           
+        }
+     })
+    
+    };
+
+    displayNumberDiv(document.getElementById("number"), spanNums)
+
+    

@@ -65,4 +65,8 @@ p{
     color: hotpink;
     display: block;
     background-color: #000000;
+    white-space: pre-line;
+    width: 40%;
+    height: 40%;
 }
+

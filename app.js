@@ -8,8 +8,6 @@ let spanNums = Array.from(document.querySelectorAll("span"));
 let button1 = document.getElementById("bttn1");
 let button2 = document.getElementById("bttn2");
 let tracker = 0;
-let newSearch = document.createElement("div");
-newSearch.id = "newDiv";
 let images = Array.from(document.getElementsByTagName("img"));
 let pokemonList = document.getElementById("pokemonList");
 
@@ -97,8 +95,11 @@ function displayNumberDiv(number, arr){
     numberBox.addEventListener("input", function(e){
     
         let num = this.value;
+        closeDiv();
     
         if (!num) { return false;}
+        let newSearch = document.createElement("div");
+        newSearch.id = "newDiv";
     
         for(let i=0; i<arr.length; i++){
             if (arr[i].textContent.substr(0, num.length) == num) {
@@ -121,8 +122,11 @@ function displayNumberDiv(number, arr){
         name.addEventListener("keyup", function(e){
         
             let val = this.value;
+           closeDiv();
         
             if (!val) { return false;}
+            let newSearch = document.createElement("div");
+            newSearch.id = "newDiv";
 
             for(let i=0; i<arr.length; i++){
                 if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
@@ -140,6 +144,13 @@ function displayNumberDiv(number, arr){
         })
         
         };
+
+        function closeDiv(elmnt) {
+            var x = document.getElementById("newDiv");
+              if (elmnt != x && (elmnt != name || elmnt!=numberBox)) {
+                x.parentNode.removeChild(x);
+              }
+          };
         
     let pokemonNames = ["Bulbasaur", "Ivysaur", "Venasaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate"]; 
     

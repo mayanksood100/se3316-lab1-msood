@@ -89,20 +89,28 @@ numberBox.addEventListener("keyup", function(event) {
     }
 });
 
+//This function is used to display the pokemon div that match the number box criteria.
 
 function displayNumberDiv(number, arr){
-   
-    numberBox.addEventListener("input", function(e){
+
+    //The "input" event will run every time the user changes the value of the number input box 
+    numberBox.addEventListener("input", function(e){   
     
         let num = this.value;
-        closeDiv();
+    //This will call the "closeDiv" funtion and remove any elements in the div that don't match the criteria.
+        closeDiv();                    
     
         if (!num) { return false;}
-        let newSearch = document.createElement("div");
-        newSearch.id = "newDiv";
+        let newSearch = document.createElement("div");   //Creating the new div.
+        newSearch.id = "newDiv";                        //Giving it an id for the styling.
     
-        for(let i=0; i<arr.length; i++){
-            if (arr[i].textContent.substr(0, num.length) == num) {
+        for(let i=0; i<arr.length; i++){   
+
+        /*If the first digit of the number input matches the Pokemon's number, then an list will be created 
+        and the images and stats of the correposnding pokemon will be appended to the new div.
+        They will be appended and inserted before the first pokemon of the orignal unordered list of pokemon  */ 
+
+            if (arr[i].textContent.substr(0, num.length) == num) {   
                 let pokemonStats = document.createElement("li");
                 pokemonStats.id = "pokemonStats";
                 pokemonStats.appendChild(document.createTextNode(lis[i].textContent));
@@ -129,6 +137,11 @@ function displayNumberDiv(number, arr){
             newSearch.id = "newDiv";
 
             for(let i=0; i<arr.length; i++){
+
+        /*If the first character of the name input matches the Pokemon's first character, then an list will be created 
+        and the images and stats of the correposnding pokemon will be appended to the new div.
+        They will be appended and inserted before the first pokemon of the orignal unordered list of pokemon  */ 
+    
                 if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
         
                     let pokemonStats = document.createElement("li");
@@ -145,6 +158,7 @@ function displayNumberDiv(number, arr){
         
         };
 
+        /*This function will remove the elements (via the .removeChild method) appended to the div if either the name search does not match or the number search does not match.*/
         function closeDiv(elmnt) {
             var x = document.getElementById("newDiv");
               if (elmnt != x && (elmnt != name || elmnt!=numberBox)) {
@@ -152,8 +166,10 @@ function displayNumberDiv(number, arr){
               }
           };
         
+
     let pokemonNames = ["Bulbasaur", "Ivysaur", "Venasaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate"]; 
     
+    //Invoking the function to display the div based on name and number search.
     displayNameDiv(document.getElementById("name"), pokemonNames);
     displayNumberDiv(document.getElementById("number"), spanNums);
 

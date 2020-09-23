@@ -105,7 +105,7 @@ function displayNumberDiv(number, arr){
                 let pokemonStats = document.createElement("li");
                 pokemonStats.id = "pokemonStats";
                 pokemonStats.appendChild(document.createTextNode(lis[i].textContent));
-                let pokemonImages = (lis[i].childNodes[1].firstChild.nextSibling);
+                let pokemonImages = (images[i].cloneNode(lis[i].childNodes[1].firstChild.nextSibling));
                 newSearch.appendChild(pokemonImages);
                 newSearch.appendChild(pokemonStats);
                 pokemonList.insertBefore(newSearch, pokemonList.childNodes[0]);
@@ -130,7 +130,7 @@ function displayNumberDiv(number, arr){
                     let pokemonStats = document.createElement("li");
                     pokemonStats.id = "pokemonStats";
                     pokemonStats.appendChild(document.createTextNode(lis[i].textContent));
-                    let pokemonImages = (lis[i].childNodes[1].firstChild.nextSibling);
+                    let pokemonImages = (images[i].cloneNode(lis[i].childNodes[1].firstChild.nextSibling));
                     newSearch.appendChild(pokemonImages);
                     newSearch.appendChild(pokemonStats);
                     pokemonList.insertBefore(newSearch, pokemonList.childNodes[0]);

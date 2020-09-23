@@ -11,6 +11,7 @@ let tracker = 0;
 let newSearch = document.createElement("div");
 newSearch.id = "newDiv";
 let images = Array.from(document.getElementsByTagName("img"));
+let pokemonList = document.getElementById("pokemonList");
 
 
 //Adding an Event Listener to the Number Search Button to validate the required criteria.
@@ -107,7 +108,7 @@ function displayNumberDiv(number, arr){
                 let pokemonImages = (lis[i].childNodes[1].firstChild.nextSibling);
                 newSearch.appendChild(pokemonImages);
                 newSearch.appendChild(pokemonStats);
-                document.body.appendChild(newSearch);
+                pokemonList.insertBefore(newSearch, pokemonList.childNodes[0]);
             }
            
         }
@@ -132,7 +133,7 @@ function displayNumberDiv(number, arr){
                     let pokemonImages = (lis[i].childNodes[1].firstChild.nextSibling);
                     newSearch.appendChild(pokemonImages);
                     newSearch.appendChild(pokemonStats);
-                    document.body.appendChild(newSearch);
+                    pokemonList.insertBefore(newSearch, pokemonList.childNodes[0]);
                    
                 }
             }

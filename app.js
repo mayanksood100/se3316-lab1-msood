@@ -143,7 +143,7 @@ function displayNumberDiv(number, arr){
         They will be appended and inserted before the first pokemon of the orignal unordered list of pokemon  */ 
     
                 if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-        
+                    
                     let pokemonStats = document.createElement("li");
                     pokemonStats.id = "pokemonStats";
                     pokemonStats.appendChild(document.createTextNode(lis[i].textContent));

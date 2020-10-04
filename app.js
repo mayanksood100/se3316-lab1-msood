@@ -106,11 +106,11 @@ function displayNumberDiv(number, arr){
     
         for(let i=0; i<arr.length; i++){   
 
-        /*If the first digit of the number input matches the Pokemon's number, then an list will be created 
+        /*If any digit of the number input matches the Pokemon's number, then an list will be created 
         and the images and stats of the correposnding pokemon will be appended to the new div.
         They will be appended and inserted before the first pokemon of the orignal unordered list of pokemon  */ 
 
-            if (arr[i].textContent.substr(0, num.length) == num) {   
+            if (arr[i].textContent.indexOf(num)!=-1) {   
                 let pokemonStats = document.createElement("li");
                 pokemonStats.id = "pokemonStats";
                 pokemonStats.appendChild(document.createTextNode(lis[i].textContent));
@@ -138,11 +138,11 @@ function displayNumberDiv(number, arr){
 
             for(let i=0; i<arr.length; i++){
 
-        /*If the first character of the name input matches the Pokemon's first character, then an list will be created 
+        /*If any characters of the name input matches the Pokemon's first character, then an list will be created 
         and the images and stats of the correposnding pokemon will be appended to the new div.
         They will be appended and inserted before the first pokemon of the orignal unordered list of pokemon  */ 
     
-                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                    if(arr[i].toUpperCase().indexOf(val.toUpperCase())!=-1){
                     
                     let pokemonStats = document.createElement("li");
                     pokemonStats.id = "pokemonStats";

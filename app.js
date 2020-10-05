@@ -145,7 +145,7 @@ function displayNumberDiv(number, arr){
                 alert("Please enter a string shorter than 20 characters.");
             }
 
-            if(val.match(letters)!=-1){
+            if(!(val.match(letters))){
                 alert("Please enter character between a-Z and A-Z only!");
             }
 

@@ -101,6 +101,11 @@ function displayNumberDiv(number, arr){
         closeDiv();                    
     
         if (!num) { return false;}
+
+        if (isNaN(numberBox.value) || numberBox.value < 1 || numberBox.value > 20) {
+            alert("Input Not Valid. Please enter a number between 1 and 20.");
+        }
+
         let newSearch = document.createElement("div");   //Creating the new div.
         newSearch.id = "newDiv";                        //Giving it an id for the styling.
     
@@ -135,6 +140,14 @@ function displayNumberDiv(number, arr){
             if (!val) { return false;}
             let newSearch = document.createElement("div");
             newSearch.id = "newDiv";
+
+            if(val.length>20){
+                alert("Please enter a string shorter than 20 characters.");
+            }
+
+            if(val.match(letters)!=-1){
+                alert("Please enter character between a-Z and A-Z only!");
+            }
 
             for(let i=0; i<arr.length; i++){
 
